@@ -1,5 +1,6 @@
 vendor/
 web/wp/
-web/plugins/*
-web/themes/*
+web/app/plugins/*
+web/app/themes/*
 docker-run.sh
+.DS_Store

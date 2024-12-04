@@ -1,0 +1,40 @@
+{
+    "name": "genkiz/wordpress-git-composer",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "authors": [
+        {
+            "name": "Alvin",
+            "email": "aeptechnologies@gmail.com"
+        }
+    ],
+    "require": {
+        "roots/wordpress": "6.1",
+        "wpackagist-plugin/akismet": "^5.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "roots/wordpress-core-installer": true
+        }
+    },
+    "extra": {
+        "wordpress-install-dir": "web/wp",
+        "installer-paths": {
+            "web/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "web/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    }
+}
