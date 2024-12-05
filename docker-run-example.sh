@@ -8,7 +8,7 @@ docker run -d \
   -v ./web/app/themes:/var/www/html/wp-content/themes \
   -e WORDPRESS_DB_PASSWORD=dbpassword \
   -e WORDPRESS_ADMIN_PASSWORD=adminroot \
-  wplocal:wordpress
+  wplocal:latest
 
 docker run -d \
   --name mysql-container \
