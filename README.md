@@ -84,11 +84,12 @@ docker run -d \
   -p 8886:80 \
   --name wp-container \
   --network wplocal-network \
-  -v C:/Users/NINA/Desktop/testing100/dockerize-wordpress/web/app/plugins:/var/www/html/wp-content/plugins \
-  -v C:/Users/NINA/Desktop/testing100/dockerize-wordpress/web/app/plugins:/var/www/html/wp-content/themes \
+  -v C:/path/to/your/project/dockerize-wordpress/web/app/plugins:/var/www/html/wp-content/plugins \
+  -v C:/path/to/your/project/dockerize-wordpress/web/app/plugins:/var/www/html/wp-content/themes \
   wplocal:latest
 
 ```
+Update the file location to your project location.
 
 - `-p` : Map port `8886` on the host to port `80` in the container. Update port `8886` as necessesary if already in use.
 
