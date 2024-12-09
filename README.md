@@ -3,7 +3,7 @@ Dockerizing WordPress involves setting up a containerized environment for both W
 
 
 ## Prerequisites
-1. Ensure Docker Desktop, HeidiSQL, VSCode, Git is installed on your system.
+1. Ensure Docker Desktop, HeidiSQL, VSCode, Git are installed on your system.
 2. Basic understanding of Git and have a Github account.
 3. Basic understanding of Docker.
 
@@ -17,6 +17,7 @@ cd dockerize-wp
 
 ```
 
+
 ## Step 2: Clone the repository
 1. In the created project directory, clone the repository.
 ```bash
@@ -26,7 +27,7 @@ git clone https://github.com/genkizkhan/dockerize-wordpress.git .
 
 
 ## Step 3: Create a WordPress Docker Image
-The docker image created will be based on the `Dockerfile` configuration.
+The docker image created will be base on the `Dockerfile` configuration.
 ```bash
 docker build -t wplocal:latest .
 
@@ -39,13 +40,12 @@ To allow the WordPress and MySQL containers to communicate, create a Docker netw
 docker network create wplocal-network
 
 ```
-- Run `docker network ls` to verify existing networks in Docker
+- Run `docker network ls` to verify existing networks in Docker.
 
 
 
 ## Step 5: Create a MySQL container
-Take note of the port `-p` as it may cause a conflict, if an existing application uses it. Looking at the configuration below: `3307` is the host port while `3306` is the container port.
-
+Looking at the configuration below, take note of the port `-p 3307:3306` as it may cause a conflict. Port `3307` is the host port map to container port `3306`. Update port `3307` as necessesary if already in use.
 ```bash
 docker run -d \
   --name mysql-container \
@@ -56,7 +56,6 @@ docker run -d \
 
 ```
 - You may change the `root_password` accordingly.
-- `-p` : Map port `3307` on the host to port `3306` in the container. Update port `3307` as necessesary if already in use.
 
 
 ## Step 6: Create a WordPress container (macOS)
@@ -79,7 +78,7 @@ docker run -d \
   --name wp-container \
   --network wplocal-network \
   -v <drive:>/<path>/<to>/<your>/<project>/<folder-name>/web/app/plugins:/var/www/html/wp-content/plugins \
-  -v <drive:>/<path>/<to>/<your>/<project>/<folder-name>/web/app/plugins:/var/www/html/wp-content/themes \
+  -v <drive:>/<path>/<to>/<your>/<project>/<folder-name>/web/app/themes:/var/www/html/wp-content/themes \
   wplocal:latest
 
 ```
@@ -130,6 +129,7 @@ To connect MySQL container as database of WordPress:
 
 ```
 - Note: `database_name` is the database you've created at Step 7.
+- `database_host` is the mysql container at docker
 
 
 
