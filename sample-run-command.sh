@@ -1,6 +1,18 @@
 #   Run this first
 docker build -t wplocal:latest .
 
+
+
+#   Run this second
+docker run -d \
+  --name mysql-container \
+  --network wplocal-network \
+  -e MYSQL_ROOT_PASSWORD=yourpassword \
+  -p 3307:3306 \
+  mysql:latest
+
+
+
 #   Run this third
 #   for macOS host
 docker run -d \
@@ -24,10 +36,3 @@ docker run -d \
 
 
 
-#   Run this second
-docker run -d \
-  --name mysql-container \
-  --network wplocal-network \
-  -e MYSQL_ROOT_PASSWORD=yourpassword \
-  -p 3307:3306 \
-  mysql:latest
