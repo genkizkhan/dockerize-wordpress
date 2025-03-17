@@ -58,8 +58,8 @@ docker run -d \
 - You may change the `root_password` accordingly.
 
 
-## Step 6: Create a WordPress container (macOS)
-For an macOS host:
+## Step 6: Create a WordPress container
+For macOS host:
 ```bash
 docker run -d \
   -p 8886:80 \
