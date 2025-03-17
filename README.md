@@ -110,11 +110,11 @@ To connect MySQL container as database of WordPress:
 ## Step 8: Configure WordPress installation
 1. Open a web browser.
 2. Navigate to `http:localhost:8886`.
-3. If the page loads an error: `ERROR ESTABLISHING A DATABASE CONNECTION`, open docker desktop, navigate to `Containers`, select `wp-container` then click `Exec` tab. Delete the file `wp-config-php` by issuing the following command in the terminal.
+3. If the page loads an error: `ERROR ESTABLISHING A DATABASE CONNECTION`, open docker desktop, navigate to `Containers`, select `wp-container` then click `Exec` tab. Delete the file `wp-config.php` by issuing the following command in the terminal.
 
-    a. `ls` : to show all files at the current directory. Make sure that it contain the file `wp-config-php`.
+    a. `ls` : to show all files at the current directory. Make sure that it contain the file `wp-config.php`.
 
-    b. `rm -rf` : to forcibly remove `wp-config-php`. Verify that the file is successfully remove by issuing the `ls` command.
+    b. `rm -rf wp-config.php` : to forcibly remove `wp-config.php`. Verify that the file is successfully remove by issuing the `ls` command.
 
 4. Navigate again to `http:localhost:8886` and it should load the WordPress installation page. Follow on-screen procedures and complete the WordPress setup using the data defined below:
 
